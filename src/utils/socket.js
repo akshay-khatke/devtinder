@@ -1,17 +1,17 @@
 import { io } from "socket.io-client";
+import { BASE_URL } from "./constants";
 
 let socket;
-const localHost = false
 
 export const createSocketConnection = () => {
-    if (localHost) {
-
-
-        if (!socket) {
+    if (!socket) {
+        if (location.hostname === "localhost") {
             socket = io("http://localhost:3000");
+        } else {
+            socket = io(BASE_URL, {
+                withCredentials: true
+            });
         }
-    } else {
-        socket = io("/", { path: "/api/socket.io" }) //for production only
     }
     return socket;
 };
