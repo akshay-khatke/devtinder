@@ -1,7 +1,7 @@
 import { io } from "socket.io-client";
 
 let socket;
-const localHost = true
+const localHost = false
 
 export const createSocketConnection = () => {
     if (localHost) {
