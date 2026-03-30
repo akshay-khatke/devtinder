@@ -169,6 +169,13 @@ const NavBar = () => {
                   </Link>
                 </li>
 
+                <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
+                  <Link to="/premium">
+                    <p className='font:Helvetica font-semiBold text-[18px] text-orange-600 font-bold'>Premium 💎</p>
+
+                  </Link>
+                </li>
+
                 <div className='border-1 border-b border-gray-300'></div>
                 <li onClick={handleLogout} className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
                   Logout

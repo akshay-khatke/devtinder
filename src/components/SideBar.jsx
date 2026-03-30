@@ -64,9 +64,15 @@ const SideBar = () => {
                                 </li>
                                 <div className="divider my-1"></div>
                                 <li>
-                                    <button onClick={() => navigate("/allchats")} className="flex items-center gap-3 p-3 rounded-lg bg-primary/10 text-primary font-bold">
+                                    <button onClick={() => navigate("/allchats")} className="flex items-center gap-3 p-3 rounded-lg hover:bg-base-300 transition-colors">
                                         <ChatIcon color="#faa307" className="size-5" />
-                                        <span className="text-[#faa307]">Chat</span>
+                                        <span>Chat</span>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button onClick={() => navigate("/premium")} className="flex items-center gap-3 p-3 rounded-lg bg-orange-50 text-orange-600 font-bold border border-orange-100">
+                                        <PremiumIcon />
+                                        <span>Premium 💎</span>
                                     </button>
                                 </li>
                             </ul>
@@ -108,6 +114,9 @@ const ChatIcon = ({ className = "", color = "currentColor" }) => (
     >
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
     </svg>
+);
+const PremiumIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor" className="size-5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
 );
 
 export default SideBar;
