@@ -18,6 +18,7 @@ const Premium = () => {
                 { amount, currency: "INR" },
                 { withCredentials: true }
             );
+            console.log(data, 'ahsnbhdsbnhdb')
 
             if (!data.success) throw new Error(data.error || "Failed to create order");
 
@@ -32,6 +33,7 @@ const Premium = () => {
                 description: `${planType.charAt(0).toUpperCase() + planType.slice(1)} Membership`,
                 order_id: orderId,
                 handler: async function (response) {
+                    console.log(response, 'handler 1')
                     try {
                         const verifyData = await axios.post(
                             `${BASE_URL}/payment/verify`,
@@ -43,6 +45,7 @@ const Premium = () => {
                             },
                             { withCredentials: true }
                         );
+                        console.log(verifyData, 'handler 2')
 
                         if (verifyData.data.success) {
                             alert("Payment Successful! Welcome to Premium! 🚀");
@@ -50,7 +53,9 @@ const Premium = () => {
                         } else {
                             alert("Payment Verification Failed: " + verifyData.data.message);
                         }
+                        console.log('handler 3')
                     } catch (err) {
+                        console.log('handler 4')
                         console.error("Verification Error:", err);
                         alert("Error during verification. Please contact support.");
                     }
@@ -125,11 +130,10 @@ const Premium = () => {
                         <button
                             disabled={loading !== null}
                             onClick={() => handlePayment('silver', 700)}
-                            className={`mt-10 w-full py-4 px-6 rounded-2xl text-[17px] font-bold transition-all ${
-                                loading === 'silver' 
+                            className={`mt-10 w-full py-4 px-6 rounded-2xl text-[17px] font-bold transition-all ${loading === 'silver'
                                 ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
                                 : 'bg-[#5B6BF9] text-white hover:bg-[#4a58d6] shadow-[0_4px_14px_0_rgba(91,107,249,0.39)] hover:scale-[1.02]'
-                            }`}
+                                }`}
                         >
                             {loading === 'silver' ? 'Processing...' : 'Pay Now'}
                         </button>
@@ -168,11 +172,10 @@ const Premium = () => {
                         <button
                             disabled={loading !== null}
                             onClick={() => handlePayment('gold', 1000)}
-                            className={`mt-10 w-full py-4 px-6 rounded-2xl text-[17px] font-bold transition-all ${
-                                loading === 'gold' 
+                            className={`mt-10 w-full py-4 px-6 rounded-2xl text-[17px] font-bold transition-all ${loading === 'gold'
                                 ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
                                 : 'bg-[#fab1a0] text-white hover:bg-[#e17055] shadow-[0_4px_14px_0_rgba(250,177,160,0.39)] hover:scale-[1.02]'
-                            }`}
+                                }`}
                         >
                             {loading === 'gold' ? 'Processing...' : 'Pay Now'}
                         </button>
