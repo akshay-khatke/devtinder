@@ -12,6 +12,7 @@ import Requests from "./screens/Requests"
 import Chat from "./screens/Chat"
 import ProtectedRoute from "./routes/ProtectedRoute"
 import AllChats from "./screens/AllChats"
+import ResumeChecker from "./screens/ResumeChecker"
 function App() {
 
   //element desides the  waht render on this route it qure jsx elemnt
@@ -29,6 +30,7 @@ function App() {
               <Route path="/requests" element={<ProtectedRoute><Requests /></ProtectedRoute>} />
               <Route path="/chat/:targetUserId" element={<ProtectedRoute><Chat /></ProtectedRoute>} />
               <Route path="/allchats" element={<ProtectedRoute><AllChats /></ProtectedRoute>} />
+              <Route path="/resume-checker" element={<ProtectedRoute><ResumeChecker /></ProtectedRoute>} />
             </Route>
 
           </Routes>
