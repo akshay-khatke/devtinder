@@ -15,7 +15,7 @@ import AllChats from "./screens/AllChats"
 import ResumeChecker from "./screens/ResumeChecker"
 import ChatBot from "./screens/ChatBot"
 function App() {
-
+  console.log("app start here")
   //element desides the  waht render on this route it qure jsx elemnt
   return (
     <div>
