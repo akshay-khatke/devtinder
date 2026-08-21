@@ -1,8 +1,5 @@
-export const BASE_URL = location.hostname === "localhost"
+export const BASE_URL = import.meta.env.VITE_BASE_URL || (location.hostname === "localhost"
     ? "http://localhost:10000"
-    : "https://devtinderbe-3.onrender.com";
+    : "https://devtinderbe-3.onrender.com");
 
-// export const BASE_URL = "http://localhost:10000"
-
-
-export const RAZORPAY_KEY_ID = "rzp_test_YOUR_KEY_HERE";
+export const RAZORPAY_KEY_ID = import.meta.env.VITE_RAZORPAY_KEY_ID;
